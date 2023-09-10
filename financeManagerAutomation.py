@@ -13,6 +13,8 @@ MONTLY_PAYMENTS = ['CHASE',"PAYMENT APPLECARD",'GEICO','WELLS FARGO','Payment Cr
 SUBSCRIPTION_NAMES = ["TRYHACKME.COM",'TRYHACKME.COM 01-06 LONDON 4862DEBIT CARD PURCHASE']
 GROCERY = ['FOOD CITY', 'WAL-MART', 'WM SUPERCENTER','PUBLIX']
 DEPOSIT = ['DEPOSIT','ATM MIXED DEPOSIT']
+BETTING = ['MGM']
+MONEY_TRANSFER = ['ZELLE']
 
 def financeManager(file):
     with open(file,'r') as csv_file:
@@ -26,8 +28,7 @@ def financeManager(file):
 
 
 
-            if 'ZELLE' in description:
-                category = 'ZELLE'
+            
 
             #DIDNT WORK SO SECOND WAY
             # if description in SUBSCRIPTION_NAMES:
@@ -36,15 +37,18 @@ def financeManager(file):
             if any(list(map(lambda x: x in description,DEPOSIT))) : category = "DEPOSIT"
             if any(list(map(lambda x: x in description,MONTLY_PAYMENTS))) : category = "PAYMENTS CC" 
             if any(list(map(lambda x: x in description,GROCERY))) : category = "GROCERY" 
+            if any(list(map(lambda x: x in description,BETTING))) : category = 'Betting -Waste' 
+            if any(list(map(lambda x: x in description,MONEY_TRANSFER))) : category = 'ZELLE-MONEY_TRANSFER'
             
             # for item in DEPOSIT:
             #     if item in description:
             #         category = '[DEPOSIT]'
 
 
-            if 'MGM' in description :
-                category = 'Betting -Waste'
             
+            
+            
+
 
 
 
@@ -63,6 +67,6 @@ gc = gspread.service_account()
 sh = gc.open("Finances")
 
 wks = sh.worksheet(f'january')
-# for row in rows:
-#     wks.insert_row([row[0], row[1], row[3], row[2]], 8)
-#     sleep(2)
+for row in rows:
+    wks.insert_row([row[0], row[1], row[3], row[2]], 7)
+    sleep(1)
