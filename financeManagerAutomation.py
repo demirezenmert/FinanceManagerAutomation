@@ -21,8 +21,8 @@ def financeManager(file):
         for row in csv_reader:
             post_date,trans_date,trans_type,serial_no,description,amount,balance = row
             category = 'other'
-            amount = re.sub(r"()", "",amount)
-
+            # amount = re.sub(r"\(|\)", "",amount)
+            amount = amount.replace('(','').replace(')','')
 
 
 
