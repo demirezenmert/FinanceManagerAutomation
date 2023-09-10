@@ -2,6 +2,7 @@
 import gspread
 import csv
 from time import sleep
+import re
 
 
 Bankfile = '/Users/mertdemirezen/Documents/Projects/FinanceManagerAutomation/acct_5623_01_01_2023_to_04_01_2023.csv'
@@ -20,6 +21,7 @@ def financeManager(file):
         for row in csv_reader:
             post_date,trans_date,trans_type,serial_no,description,amount,balance = row
             category = 'other'
+            amount = re.sub(r"()", "",amount)
 
 
 
@@ -29,13 +31,17 @@ def financeManager(file):
 
             #DIDNT WORK SO SECOND WAY
             # if description in SUBSCRIPTION_NAMES:
-                # category = "SUBSCRIPTION"
-            category = "SUBSCRIPTION" if any(list(map(lambda x: x in description,SUBSCRIPTION_NAMES))) else "other"
-            category = "DEPOSIT" if any(list(map(lambda x: x in description,DEPOSIT))) else "other"
-            category = "GROCERY" if any(list(map(lambda x: x in description,GROCERY))) else "other"
-            category = "PAYMENTS CC" if any(list(map(lambda x: x in description,MONTLY_PAYMENTS))) else "other"
+            #     # category = "SUBSCRIPTION"
+            if any(list(map(lambda x: x in description,SUBSCRIPTION_NAMES))) : category = "SUBSCRIPTION" 
+            if any(list(map(lambda x: x in description,DEPOSIT))) : category = "DEPOSIT"
+            if any(list(map(lambda x: x in description,MONTLY_PAYMENTS))) : category = "PAYMENTS CC" 
+            if any(list(map(lambda x: x in description,GROCERY))) : category = "GROCERY" 
             
-        
+            # for item in DEPOSIT:
+            #     if item in description:
+            #         category = '[DEPOSIT]'
+
+
             if 'MGM' in description :
                 category = 'Betting -Waste'
             
@@ -48,7 +54,7 @@ def financeManager(file):
 rows = financeManager(Bankfile)
 print(rows)
 for trans in transactions:
-    print(f'Category: {trans[-1]} --Amount: {trans[2]}- {trans[1][:4]}')
+    print(f'Category: {trans[-1]} --Amount: {trans[2]}- {trans[1]}')
     # print(trans[1])
     # if trans[1] in grocery :
         # print("[DEBUG] Yes!") 
