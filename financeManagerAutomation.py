@@ -40,12 +40,9 @@ def financeManager(file):
             if any(list(map(lambda x: x in description,BETTING))) : category = 'Betting -Waste' 
             if any(list(map(lambda x: x in description,MONEY_TRANSFER))) : category = 'ZELLE-MONEY_TRANSFER'
             
-            # for item in DEPOSIT:
-            #     if item in description:
-            #         category = '[DEPOSIT]'
+            # if category is not DEPOSIT - will be minus (expenses)
 
-
-            
+            if category != 'DEPOSIT' : amount = -amount
             
             
 
