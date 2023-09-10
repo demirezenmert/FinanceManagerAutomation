@@ -22,7 +22,7 @@ def financeManager(file):
             post_date,trans_date,trans_type,serial_no,description,amount,balance = row
             category = 'other'
             # amount = re.sub(r"\(|\)", "",amount)
-            amount = amount.replace('(','').replace(')','')
+            amount = float(amount.replace('(','').replace(')','').replace('$',''))
 
 
 
@@ -54,7 +54,7 @@ def financeManager(file):
 rows = financeManager(Bankfile)
 print(rows)
 for trans in transactions:
-    print(f'Category: {trans[-1]} --Amount: {trans[2]}- {trans[1]}')
+    print(f'Category: {trans[-1]} --Amount: {trans[2]} - {trans[1]}')
     # print(trans[1])
     # if trans[1] in grocery :
         # print("[DEBUG] Yes!") 
