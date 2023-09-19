@@ -80,7 +80,10 @@ Contributions are welcome! To contribute to the Finance Manager Automation proje
 
 Please ensure your code follows PEP 8 style guidelines and includes appropriate documentation and comments.
 ---
-![alt text](https://github.com/demirezenmert/FinanceManagerAutomation/blob/master/Example.png)
+
+![Example-1](https://github.com/demirezenmert/FinanceManagerAutomation/assets/25477430/ad6c5a3d-6442-4d32-ad29-51fa8de4392e)
+
+![Example](https://github.com/demirezenmert/FinanceManagerAutomation/assets/25477430/efba3323-fd7a-48d0-a74f-e567cb330c13)
 
 ## License
 
