@@ -79,6 +79,8 @@ Contributions are welcome! To contribute to the Finance Manager Automation proje
 4. Create a pull request with a clear description of your changes.
 
 Please ensure your code follows PEP 8 style guidelines and includes appropriate documentation and comments.
+---
+![alt text](https://github.com/demirezenmert/FinanceManagerAutomation/blob/master/Example.png)
 
 ## License
 
