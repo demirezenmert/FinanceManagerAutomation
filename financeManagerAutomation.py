@@ -5,9 +5,9 @@ from time import sleep
 import re
 
 
-# Bankfile = '/Users/mertdemirezen/Documents/Projects/FinanceManagerAutomation/acct_5623_01_01_2023_to_04_01_2023.csv'
-# Bankfile = 'acct_5623_04_01_2023_to_06_30_2023.csv'
-Bankfile = 'acct_5623_07_01_2023_to_08_31_2023.csv'
+
+
+Bankfile = 'fake_bank_transactions.csv'
 
 transactions = []
 MONTLY_PAYMENTS = ['CHASE',"PAYMENT APPLECARD",'GEICO','Payment Credit One Bank','E-PAYMENT DISCOVER','ACH PMT AMEX']
